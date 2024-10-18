@@ -6,6 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        (function() {
+          emailjs.init("");  // Replace with your actual User ID
+        })();
+      
+        function sendEmail(e) {
+          e.preventDefault();  // Prevent default form submission
+      
+          const form = document.getElementById('contact-form');
+          const templateParams = {
+            from_name: form.user_name.value,
+            from_email: form.user_email.value,
+            message: form.message.value
+          };
+      
+          emailjs.send('service_', 'template_', templateParams)
+            .then(function(response) {
+              console.log('Success:', response);
+              alert('Message sent successfully!');
+            }, function(error) {
+              console.error('Error:', error);
+              alert('Failed to send the message, please try again.');
+            });
+        }
+      </script>
 </head>
 
 <body>
@@ -23,7 +48,7 @@
     <main>
         <section class="section">
             <h2>Contact Information</h2>
-            <form action="send_email.php" method="POST">
+            <form id="contact-form" onsubmit="sendEmail(event)">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
             
