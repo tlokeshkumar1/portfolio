@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript">
         (function() {
-          emailjs.init("");  // Replace with your actual User ID
+          emailjs.init("5XEgqIrTgwpb27mt4");  // Replace with your actual User ID
         })();
       
         function sendEmail(e) {
@@ -21,7 +21,7 @@
             message: form.message.value
           };
       
-          emailjs.send('service_', 'template_', templateParams)
+          emailjs.send('service_nsce6ra', 'template_wipms7a', templateParams)
             .then(function(response) {
               console.log('Success:', response);
               alert('Message sent successfully!');
